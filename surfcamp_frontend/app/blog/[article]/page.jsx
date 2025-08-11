@@ -29,9 +29,14 @@ export default async function Page({params}){
 }
 
 export async function generateStaticParams() {
-    const articles = await fetchDataFromStrapi("blog-articles")
+    try {
+        const articles = await fetchDataFromStrapi("blog-articles")
 
    return articles.map((article) =>({
     article: article.attributes.slug,
    }))
+    } catch (error) {
+        console.log("Error fetching blog articles:", error)
+    }
+    
 }

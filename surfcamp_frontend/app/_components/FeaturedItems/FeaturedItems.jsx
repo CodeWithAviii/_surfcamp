@@ -1,8 +1,9 @@
 'use client'
 import { useState } from 'react';
 import FeaturedArticle from './FeaturedArticle'
+import FeaturedEvent from './FeaturedEvent';
 
-const FeaturedItems = ({ items, headline}) => {
+const FeaturedItems = ({ items, headline, itemType = "article"}) => {
   const [itemNumber, setItemNumber] = useState(3);
 
   const onShowMore = () => {
@@ -21,9 +22,13 @@ const FeaturedItems = ({ items, headline}) => {
         <div className="featured-items__container">
             {items
             .slice(0, itemNumber)
-            .map((item) => (
-               <FeaturedArticle key={item.slug} article={item} />
-            ))}
+            .map((item) => {
+              if(itemType === "article"){
+                return <FeaturedArticle key={item.slug} article={item} />
+              }else{
+                return <FeaturedEvent key={item.id} event={item} />
+              }
+})}
         </div>
         {itemNumber < items.length && <button className="btn btn--medium btn--turquoise" onClick={onShowMore}>
           See more
