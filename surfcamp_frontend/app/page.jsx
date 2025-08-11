@@ -1,3 +1,4 @@
+import BlogPreview from "./_components/BlogPreview/BlogPreview";
 import HeroSection from "./_components/HeroSection"
 import InfoBlock from "./_components/InfoBlock"
 import { fetchDataFromStrapi, processedInfoBlocks } from "@/utils/strapi.utils"
@@ -19,6 +20,7 @@ export default async function Home() {
     <main >
       <HeroSection healine={heroheadline}/>
       {infoBlocksData.map((data) => <InfoBlock key={data.id} data={data} />)}
+      <BlogPreview />
     </main>
   )
 }
