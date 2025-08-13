@@ -4,7 +4,7 @@ import FeaturedItems from "../_components/FeaturedItems/FeaturedItems";
 export default async function Page() {
     const allEvents = await fetchAllEvents();
     // console.log("first")
-    console.log(allEvents.length)
+    // console.log(allEvents.length)
   const infoText = (
     <>
      <p className="copy">Staying in touch with our website is your ticket to catching the wave of

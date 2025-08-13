@@ -3,8 +3,8 @@ import Link from "next/link";
 const ArticleOverview = ({article}) => {
     // console.log(article);
     const headlines = article.ArticleContent.filter((component) => component.__component === "blog-article.headline");
-    console.log(headlines.length)
-    console.log(headlines[0])
+    // console.log(headlines.length)
+    // console.log(headlines[0])
     return (
         <div className="article-overview">
             <div className="article-overview__info">
